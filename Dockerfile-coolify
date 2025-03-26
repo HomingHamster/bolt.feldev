@@ -5,10 +5,11 @@ WORKDIR /app
 # Instalar pnpm e wrangler
 RUN npm install -g wrangler
 
-RUN npm install -g pnpm && pnpm install
-
 # Copiar arquivos de dependências
 COPY package.json pnpm-lock.yaml ./
+
+RUN npm install -g pnpm && pnpm install
+
 
 # Instalar dependências
 RUN pnpm install
